@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>landing-page</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body::-webkit-scrollbar{
+            display:none;
+        }
+        .nav-bar{
+            width:100%;
+            height:50px;
+            background-color:rgba(255, 255, 255, 0.5);
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: fixed;
+            z-index: 999;
+            box-shadow: 5px 0px 9px black;
+        }
+        .nav-bar>ul{
+            list-style-type: none;
+            width:100%;
+            height:100%;
+            float:right;
+            margin:0px;
+        }
+        .nav-bar>ul>li{
+            float:right;
+            padding-left: 20px;
+            padding-right: 20px;
+            height:100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .nav-bar>ul>li>b>a{
+            text-decoration: none;
+            color:black;
+            font-family: "sofia";
+        }
+        .nav-bar>ul>li:hover{
+            border-bottom: 7px solid black;
+            position: relative;
+            bottom:5px;
+            transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+            border-left:1px solid white;
+            border-right:1px solid white;
+        }
+        .nav-bar>.head-logo{
+            width: 300px;
+            /* border: 1px solid red; */
+        }
+        .nav-bar>.head-logo>h1{
+            /* border: 1px solid red; */
+            padding-left:30px;
+        }
+        .nav-bar>.head-logo>h1>a{
+            text-decoration: none;
+            color:black;
+        }
+        .ironmanhomepage{
+            width:100%;
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items:end;
+            background-image: url("assets/skybackground.jpg");
+            background-repeat: round;
+            position: sticky;
+            top: 0;
+            overflow: hidden;
+        }
+        .hulkhomepage{
+            width:100%;
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-image: url("assets/hulkbgpng.jpg");
+            background-repeat: round;
+            position: sticky;
+            top: 0;
+        }
+        .thorhomepage{
+            width:100%;
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items:end;
+            overflow: hidden;
+            background-image: url("assets/thunderflashesgif.gif");
+            background-repeat:no-repeat;
+            background-size: cover;
+            position: sticky;
+            top: 0;
+        }
+        .spidermanhomepage{
+            width:100%;
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-image: url("assets/spidermanbg.png");
+            background-repeat: round;
+            position: sticky;
+            top: 0;
+        }
+        .captainamericahomepage{
+            width:100%;
+            height:100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background-image: url("assets/warzone.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        .ironmanhomepage>div>h2{
+            font-weight: bolder;
+            font-size:200px;
+            width:100%;
+            height:100px;
+            position: relative;
+            top:400px;
+            color:white;
+            font-style:italic;
+            cursor:default;
+        }
+        .hulkhomepage>div>h2{
+            font-weight: bolder;
+            font-size:200px;
+            width:100%;
+            height:100px;
+            position: relative;
+            top:200px;
+            left:300px;
+            color:white;
+            font-style:italic; 
+            cursor:default;
+        }
+        .thorhomepage>div>h2{
+            font-weight: bolder;
+            font-size:200px;
+            width:100%;
+            height:100px;
+            position: relative;
+            top:300px;
+            right:200px;
+            color:whitesmoke;
+            cursor:default;
+            font-style: normal;
+            font-family: 'Sofia';
+        }
+        .captainamericahomepage>div>h2{
+            font-weight: bolder;
+            font-size:126px;
+            width:100%;
+            height:100px;
+            position: relative;
+            top:90px;
+            color:whitesmoke;
+            font-style:italic; 
+            cursor:default;
+        }
+        .spidermanhomepage>div>h2{
+            font-weight: bolder;
+            font-size:126px;
+            width:100%;
+            height:100px;
+            position: relative;
+            top:80px;
+            left:60px;
+            color:whitesmoke;
+            font-style:italic; 
+            cursor:default;
+        }
+        .ironmanhomepage>div>img{
+            animation:float 1s infinite;
+            transition: ease-in-out;
+        }
+        .ironmanhomepage>#shopnow{
+            border:rgb(255, 255, 255) 1px solid;
+            width:150px;
+            height:60px;
+            border-radius: 60px;
+            position: absolute;
+            right:20%;
+            top:75%;
+            display: grid;
+            place-items: center;
+            font-size: larger;
+            color:rgb(255, 255, 255);
+            background-color: rgba(255,255,255,0.2);
+            cursor: pointer;
+        }
+        .thorhomepage>#shopnow{
+            border:rgb(255, 255, 255) 1px solid;
+            width:150px;
+            height:60px;
+            border-radius: 60px;
+            position: absolute;
+            left:25%;
+            top:70%;
+            display: grid;
+            place-items: center;
+            font-size: larger;
+            color:rgb(255, 255, 255);
+            background-color: rgba(255,255,255,0.2);
+            cursor: pointer;
+        }
+        .captainamericahomepage>#shopnow{
+            border:rgb(255, 255, 255) 1px solid;
+            width:150px;
+            height:60px;
+            border-radius: 60px;
+            position: absolute;
+            left:15%;
+            top:70%;
+            display: grid;
+            place-items: center;
+            font-size: larger;
+            color:rgb(255, 255, 255);
+            background-color: rgba(255,255,255,0.2);
+            cursor: pointer;
+        }
+        .spidermanhomepage>#shopnow{
+            border:rgb(255, 255, 255) 1px solid;
+            width:150px;
+            height:60px;
+            border-radius: 60px;
+            position: absolute;
+            left:15%;
+            top:50%;
+            display: grid;
+            place-items: center;
+            font-size: larger;
+            color:rgb(255, 255, 255);
+            background-color: rgba(255,255,255,0.2);
+            cursor: pointer;
+        }
+        .hulkhomepage>#shopnow{
+            border:rgb(255, 255, 255) 1px solid;
+            width:150px;
+            height:60px;
+            border-radius: 60px;
+            position: absolute;
+            right:20%;
+            top:70%;
+            display: grid;
+            place-items: center;
+            font-size: larger;
+            color:rgb(255, 255, 255);
+            background-color: rgba(255,255,255,0.4);
+            cursor: pointer;
+        }
+        @keyframes float{
+            0%{
+                top: 0px;
+            }
+            50%{
+                top:5px;
+            }
+            100%{
+                top: 0px;
+            }
+        }
+        .footer{
+            width:100%;
+            height:50vh;
+            background-color:#1a1a1a;
+            position:sticky;
+            top:0px;
+            display: flex;
+            justify-content: center;
+        }
+        .footer>.btt{
+            width:150px;
+            height:55px;
+            color:black;
+            background-color: rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top:0;
+            left:45%;
+            border-radius: 0px 0px 10px 10px;
+            font-family:"sofia";
+            cursor: pointer;
+        }   
+        .follow-container{
+            display: flex;
+            justify-content: space-evenly;
+            /* border:1px solid red; */
+            width:90vw;
+            height:30vh;
+            position:relative;
+            top:19%;
+        }
+        .follow{
+            width:20vw;
+            height:100%;
+            /* border:1px solid white; */
+        }
+        .follow-4{
+            width:20vw;
+            height:100%;
+            /* border:1px solid white; */
+        }
+        .follow-4>div>i{
+            font-size: 40px;
+            margin-left: 5px;
+        }
+        .follow-4>.div{
+            display: flex;
+            justify-content: space-between;
+            align-items:center;
+        }
+        .follow-4>.followdiv{
+            display: flex;
+            justify-content:space-evenly;
+            align-items:center;
+        }
+        .follow-4>div>h4{
+            color:white;
+            width:100%;
+            /* border:1px solid yellow; */
+        }
+        .follow-2{
+            width:20vw;
+            height:100%;
+            /* border:1px solid white; */
+        }
+        .follow-2>ul>li>a{
+            color:white;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        .follow-2>ul>li{
+            list-style-type: none;
+        }
+        .follow-1{
+            width:11vw;
+            height:100%;
+            /* border:1px solid white; */
+        }
+        .copyright{
+            display: flex;
+            border:1px greenyellow solid;
+            width:100vw;
+            height:40px;
+            position: absolute;
+            bottom:0px;
+            background-color: #0c0042;
+            display:flex;
+            justify-content: space-evenly;
+            align-items: center;
+            overflow: hidden;
+        }
+        i{
+            position: absolute;
+            left:45%;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="head-logo">
+            <h1><a href="#">H EAGLES</a></h1>
+        </div>
+        <ul>
+            <li><b><a href="#">CONTACT US</a></b></li>
+            <li><b><a href="#">ABOUT</a></b></li>
+            <li><b><a href="#">PRODUCTS</a></b></li>
+            <li><b><a href="#">OFFERS</a></b></li>
+            <li><b><a href="#">HOME</a></b></li>
+        </ul>
+    </div>
+    <div class="ironmanhomepage" id="ironman">
+        <div data-aos="fade-right" data-aos-offset="0" id="shopnow">
+            SHOP&nbsp;NOW
+        </div>
+        <div class="ironman" >
+            <h2 data-aos="slide-left">IRON  &nbsp;&nbsp;  MAN</h2>
+            <img data-aos="slide-down" style="position: relative; left:500px;"  src="assets/ironmanpng.png" alt="ironmanpng">
+        </div>
+    </div>
+
+    <div class="hulkhomepage" id="hulk">
+        <div data-aos="fade-down" data-aos-offset="1" id="shopnow">
+            SHOP&nbsp;NOW
+        </div>
+        <div class="hulkpng" >
+            <h2 data-aos="fade-right">HULK</h2>
+            <img data-aos="slide-up" data-aos-delay="1000" style="position: relative; top:-200px; right: 0px;" src="assets/hulkpng.png" alt="hulkpng">
+        </div>
+    </div>
+
+    <div class="thorhomepage" id="thor">
+        <div data-aos="fade-right" data-aos-offset="0" id="shopnow">
+            SHOP&nbsp;NOW
+        </div>
+        <div class="thorpng" >
+            <h2 data-aos="fade-left">THOR</h2>
+            <img data-aos="slide-up" style="position: relative; left:300px;" src="assets/thorpng.png" alt="thorpng" >
+        </div>
+    </div>
+
+    <div class="spidermanhomepage" id="spiderman">
+        <div data-aos="fade-up-right" data-aos-offset="0" id="shopnow">
+            SHOP&nbsp;NOW
+        </div>
+
+        <div class="spidermanpng">
+            <h2 data-aos="slide-right">SPIDER MAN</h2>
+            <img data-aos="slide-left" src="assets/spidermanpng.png" style="position: relative; top:-95px; left:315px;" alt="spidermanpng">
+        </div>
+        <img src="assets/building.png" style="height: 100%; width:500px; position:relative; left:82px; right:0px;" alt="layer">
+    </div>
+
+    <div class="captainamericahomepage" id="captainamerica">
+        <div data-aos="fade-left" data-aos-offset="0" id="shopnow">
+            SHOP&nbsp;NOW
+        </div>
+        <div class="captainamericapng" >
+            <h2  data-aos="fade-right" data-aos-delay="500">CAPTAIN   &nbsp;   AMERICA</h2>
+            <img data-aos="slide-up" src="assets/captainamericapng.png" style="position: relative; left:400px; bottom:95px; " alt="captainamericapng">
+        </div>
+    </div>
+    <div class="footer">
+        <div class="btt"> 
+            <a href="#" style="text-decoration: none; color:black;">
+                Back To Top<br>
+                <i style="color:rgba(255,255,255,0.5); animation:float 1s infinite; position:relative; bottom:5px;" class="fa fa-chevron-up"></i>
+            </a>
+        </div>
+        <div class="follow-container">
+            <div class="follow-1">
+                <h2 style="font-size: 190px; padding:0px; margin:0px; position:relative; top:-15px; color:white;">H</h2>
+            </div>
+            <div class="follow-2">
+                <ul>
+                    <li><a href="#">ABOUT H EAGLE</a></li>
+                    <br>
+                    <li><a href="#">HELP/FAQS</a></li>
+                    <br>
+                    <li><a href="#">ADVERTISING</a></li>
+                    <br>
+                    <li><a href="#">CAREERS</a></li>
+                    <br>
+                    <li><a href="#">INTER NSHIPS</a></li>
+                </ul>
+            </div>
+            <div class="follow"></div>
+            <div class="follow-4">
+                <div class="followdiv">
+                    <h4>FOLLOW US ON</h4>
+                </div>
+                <div class=".div">
+                <i style="color:rgb(118, 118, 118); position:static;" class="fa fa-facebook"></i>
+                <i style="color:rgb(118, 118, 118); position:static;" class="fa fa-twitter"></i>
+                <i style="color:rgb(118, 118, 118); position:static;" class="fa fa-instagram"></i>
+                <i style="color:rgb(118, 118, 118); position:static;" class="fa fa-youtube"></i>
+                <i style="color:rgb(118, 118, 118); position:static;" class="fa fa-snapchat"></i>
+                <i style="color:rgb(118, 118, 118); position:static;" class="fa fa-twitch"></i>
+                </div>
+            </div>
+        </div>
+        <div class="copyright" id="copyright">
+            <div class="b">
+                <p style="color:white;">Made With <i class="fa fa-heart" style="color:red; position:static;" aria-hidden="true"></i> By Hareeswar</p>
+            </div>
+            <div class="copy">
+                <p style="color:white;">&copy; Copyright.All rights reserved</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({duration:3000,delay:100,offset:200,once:true});
+</script>
+</html>
